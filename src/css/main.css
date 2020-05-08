@@ -1,0 +1,81 @@
+body {
+    overflow-x: hidden;
+    background-color: white;
+}
+
+.app-row {
+    margin-bottom: 0px;
+}
+
+.navbar-column {
+    height: 100vh;
+    border-right: 1px solid grey;
+    overflow-x: scroll;
+}
+
+.content-column {
+    height: 100vh;
+    overflow-x: scroll;
+}
+
+a:link {
+    color: #26a69a;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #26a69a;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #26a69a;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: #26a69a;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.nav-title-section {
+    padding-bottom: 10px;
+}
+
+.nav-content-section {
+    padding: 0px !important;
+}
+
+.float-right {
+    float: right;
+}
+
+.nav-icon {
+    opacity: 0.5;
+    color: black;
+}
+
+.nav-icon:hover {
+    opacity: 1;
+}
+
+.collection {
+    border: none;
+}
+
+.new-note-option {
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+}
+
+.edit-title-icon {
+    opacity: 0;
+}
+
+#note-title:hover .edit-title-icon {
+    opacity: 0.5;
+}
