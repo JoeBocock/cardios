@@ -2,9 +2,125 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+
+    <title>Cardios</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/main.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="./src/js/initialise.js"></script>
+    <script type="text/javascript" src="./src/js/data_manager.js"></script>
+    <script type="text/javascript" src="./src/js/interface.js"></script>
+    <script type="text/javascript" src="./src/js/helper.js"></script>
+    <script type="text/javascript" src="./src/js/cardios.js"></script>
 </head>
 <body>
+    <div class="row app-row">
+        <div class="col s3 navbar-column" style="overflow-x: scroll;">
+            <div class="row">
+                <div class="col s12 center-align nav-title-section">
+                    <h3>Cardios</h3>
+                    <small>Please submit any bugs here: <a href="#" onclick="shell.openExternal('https://github.com/JoeBocock/cardios/issues')">Github</a></small>
+                </div>
+                <div class="col s12 collection nav-content-section">
+                </div>
+            </div>
+        </div>
+        <div class="col s9 content-column">
+        </div>
+    </div>
+
+    <div id="new-note-modal" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4 style="padding-bottom: 20px" id="new-note-header">Create a new note...</h4>
+            <div class="input-field">
+                <input id="new-note-title" placeholder="My New Note" class="validate" type="text" data-length="20" required>
+                <label for="first_name">Title</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close red-text btn-flat">Cancel</a>
+            <a href="#!" class="btn-flat" onclick="cardios.captureTitle()">Confirm</a>
+        </div>
+    </div>
+
+    <div id="delete-note-modal" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4 style="padding-bottom: 10px" id="new-note-header">Are you sure?</h4>
+            <p>The deletion of a note is irreversible.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close btn-flat">Cancel</a>
+            <a href="#!" class="red-text btn-flat" onclick="cardios.deleteNote()">Confirm</a>
+        </div>
+    </div>
+
+    <template id="nav-option-new-note">
+        <a href="#new-note-modal" class="collection-item new-note-option modal-trigger" onclick="helper.focusElement('new-note-title');">
+            <strong>New note...</strong>
+            <span class="float-right">
+                <i class="material-icons nav-icon">folder_open</i>
+            </span>
+        </a>
+    </template>
+
+    <template id="nav-option">
+        <a id="nav-option-{id}" href="#!" class="collection-item" style="border:none;" onclick="cardios.loadNote('{id}');">
+            {title}
+            <span class="float-right">
+                <i class="material-icons nav-icon modal-trigger" href="#delete-note-modal">close</i>
+            </span>
+        </a>
+    </template>
+
+    <template id="note-template">
+        <div class="container center-align">
+            <h3 id="note-title">{title}  <i class="material-icons small edit-title-icon">edit</i></h3>
+            <div class="progress" style="opacity: 0.6;">
+                <div id="progress-bar" class="determinate" style="width: 100%"></div>
+            </div>
+            <input type="hidden" name="current-note" value="{id}">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">info_outline</i>
+                            Note Information
+                        <span class="new badge" data-badge-caption=""><i class="material-icons" style="margin-right: 0">keyboard_arrow_down</i></span>
+                    </div>
+                    <div class="collapsible-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Created At</strong></td>
+                                    <td><span class="new badge" data-badge-caption="{created}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Last Updated At</strong></td>
+                                    <td><span class="new badge" data-badge-caption="{updated}"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="row" style="padding-top: 20px;">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                            <textarea id="note-contents" class="materialize-textarea">{contents}</textarea>
+                            <label for="textarea1">End of Note</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
 </body>
 </html>
