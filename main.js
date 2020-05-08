@@ -2,15 +2,19 @@ const { app, BrowserWindow } = require('electron');
 
 function createWindow () {
     const win = new BrowserWindow({
-        width: 1920,
-        height: 1080,
+        minWidth: 1280,
+        maxWidth: 1280,
+        minHeight: 800,
+        maxHeight: 800,
+        width: 1280,
+        height: 800,
         webPreferences: {
             nodeIntegration: true
         }
     });
 
     win.loadFile('index.html');
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
