@@ -9,7 +9,7 @@
 It's a super simple electron app. Take notes and that's it. What else could you want?
 
 
-- Quick Note: Carios is not yet deployed. The only way to mess around with is is cloning and builing with running NPM start.
+- Quick Note: Cardios is not yet deployed. The only way to mess around with is is cloning and builing with running NPM start.
 
 <br>
 
