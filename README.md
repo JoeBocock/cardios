@@ -1,6 +1,8 @@
 # Cardios
 
-![](cardios.gif)
+<p align="center">
+  <img src="cardios.gif" width="80%" title="Gif of cardios being used.">
+</p>
 
 <br>
 
