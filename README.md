@@ -6,7 +6,7 @@
 
 <br>
 
-## What is Cardios?
+## About Cardios?
 
 It's a super simple electron app. Take notes and that's it. What else could you want?
 
